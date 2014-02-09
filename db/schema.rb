@@ -11,9 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140209134010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bets", force: true do |t|
+    t.text     "text"
+    t.string   "game"
+    t.boolean  "outcome"
+    t.integer  "tipster_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tipsters", force: true do |t|
+    t.string   "name",          null: false
+    t.string   "facebook_link"
+    t.string   "referral_link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

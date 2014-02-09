@@ -6,6 +6,11 @@ Tipstr::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root :to => redirect('/admin')
+
+  resources :tipsters do
+    resources :bets
+  end
+  resources :bets
   # root :to => redirect('/index.html')
 
   # Example of regular route:
